@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using TinyDemo.ClientLib.Services;
 using TinyDemo.SharedLib.Services;
 
 namespace TinyDemo.WFClient
@@ -18,7 +19,7 @@ namespace TinyDemo.WFClient
 
             //Gwen - Voeg MainForm toe aan de ServiceCollection
             services.AddTransient<MainForm>();
-
+            services.AddScoped<HttpClient>();
 
             //Gwen - Bouw de ServiceProvider
             var serviceProvider = services.BuildServiceProvider();

@@ -1,0 +1,6 @@
+@TinyDemo.WebAPI_HostAddress = http://localhost:5115
+
+GET {{TinyDemo.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

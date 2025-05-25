@@ -1,7 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using TinyDemo.SharedLib.Entities;
+using TinyDemo.SharedLib.Services;
 
-namespace TinyDemo.SharedLib.Services
+namespace TinyDemo.WebAPI.Services
 {
     public class LottoService : ILottoService
     {

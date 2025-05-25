@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TinyDemo.ClientLib\TinyDemo.ClientLib.csproj" />
     <ProjectReference Include="..\TinyDemo.SharedLib\TinyDemo.SharedLib.csproj" />
   </ItemGroup>
 
