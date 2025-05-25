@@ -32,8 +32,6 @@ namespace TinyDemo.WPFClient.Controls
         public NumberControl()
         {
             InitializeComponent();
-            //DataContext = this;
-
         }
     }
 }

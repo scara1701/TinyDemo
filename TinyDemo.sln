@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyDemo.WebAPI", "TinyDemo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyDemo.ClientLib", "TinyDemo.ClientLib\TinyDemo.ClientLib.csproj", "{2E1658B4-3431-44EA-9E1A-1CCA9737CCFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyDemo.MauiClient", "TinyDemo.MauiClient\TinyDemo.MauiClient.csproj", "{6DCBBE7E-1429-49EF-A777-233BB1E19573}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2E1658B4-3431-44EA-9E1A-1CCA9737CCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E1658B4-3431-44EA-9E1A-1CCA9737CCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E1658B4-3431-44EA-9E1A-1CCA9737CCFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCBBE7E-1429-49EF-A777-233BB1E19573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCBBE7E-1429-49EF-A777-233BB1E19573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCBBE7E-1429-49EF-A777-233BB1E19573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCBBE7E-1429-49EF-A777-233BB1E19573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
