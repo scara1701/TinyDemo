@@ -2,8 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:TinyDemo.MauiClient.Controls"
+             xmlns:converters="clr-namespace:TinyDemo.MauiClient.Converters"
              x:Class="TinyDemo.MauiClient.MainPage">
-
+    <ContentPage.Resources>
+        <converters:IntToStringConverter x:Key="IntToStringConverter" />
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
@@ -15,12 +18,8 @@
                 <controls:NumberControl Number="{Binding Lotto.Numbers[3]}" />
                 <controls:NumberControl Number="{Binding Lotto.Numbers[4]}" />
                 <controls:NumberControl Number="{Binding Lotto.Numbers[5]}" />
-                <Label Text="{Binding Lotto.Numbers[0]}" />
                 <Label Text="+" FontSize="28" FontAttributes="Bold" />
                 <controls:NumberControl Number="{Binding Lotto.Numbers[6]}" />
-
-
-                <controls:NumberControl Number="999" />
             </StackLayout>
             <Button Text="Generate new Lotto numbers"  Command="{Binding GenerateCommand}" IsEnabled="{Binding NotBusy}" />
             <Label Text="{Binding StatusMessage}"/>
