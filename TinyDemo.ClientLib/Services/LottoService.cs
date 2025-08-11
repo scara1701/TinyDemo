@@ -27,22 +27,16 @@ namespace TinyDemo.ClientLib.Services
         }
         public async Task<Lotto> GenerateLotto()
         {
-            try
-            {
-                HttpResponseMessage response = await _httpClient.GetAsync(_apiUrl);
-                response.EnsureSuccessStatusCode();
+            HttpResponseMessage response = await _httpClient.GetAsync(_apiUrl).ConfigureAwait(false);
+            response.EnsureSuccessStatusCode();
 
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var lotto = await JsonSerializer.DeserializeAsync<Lotto>(responseStream, _options).ConfigureAwait(false);
 
-                string responseBody = await response.Content.ReadAsStringAsync();
-                if (responseBody == null) throw new Exception("Empty body returned from server.");
-                return JsonSerializer.Deserialize<Lotto>(responseBody, _options);
+            if (lotto == null)
+                throw new Exception("Empty or invalid body returned from server.");
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                throw;
-            }
+            return lotto;
         }
     }
 }

@@ -31,18 +31,17 @@ namespace TinyDemo.MVVM
 
         private async Task GenerateLottoAsync()
         {
+            Busy = true;
             try
             {
-                Busy = true;
                 StatusMessage = "Generating lotto numbers. Please wait....";
-                Lotto = await _lottoService.GenerateLotto();
-                StatusMessage = $"Lotto numbers generated on {Lotto.GeneratedOnTime.ToShortTimeString()}";
-
+                var lotto = await _lottoService.GenerateLotto().ConfigureAwait(false);
+                Lotto = lotto;
+                StatusMessage = $"Lotto numbers generated on {lotto.GeneratedOnTime.ToShortTimeString()}";
             }
             catch (Exception ex)
             {
                 StatusMessage = ex.Message;
-                //throw;
             }
             finally
             {
