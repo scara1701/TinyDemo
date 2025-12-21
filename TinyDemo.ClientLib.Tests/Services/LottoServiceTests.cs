@@ -113,7 +113,8 @@ namespace TinyDemo.ClientLib.Tests.Services
             var lottoService = new LottoService(httpClient);
 
             // Act & Assert
-            await Assert.ThrowsAsync<HttpRequestException>(() => lottoService.GenerateLotto());
+            // The service wraps HttpRequestException in InvalidOperationException
+            await Assert.ThrowsAsync<InvalidOperationException>(() => lottoService.GenerateLotto());
         }
 
         [Fact]
@@ -168,8 +169,8 @@ namespace TinyDemo.ClientLib.Tests.Services
             var lottoService = new LottoService(httpClient);
 
             // Act
-            var optionsField = typeof(LottoService).GetField("_options", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            var options = optionsField?.GetValue(lottoService) as JsonSerializerOptions;
+            var optionsField = typeof(LottoService).GetField("_options", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+            var options = optionsField?.GetValue(null) as JsonSerializerOptions;
 
             // Assert
             Assert.NotNull(options);
