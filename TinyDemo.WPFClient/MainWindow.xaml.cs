@@ -18,10 +18,23 @@ namespace TinyDemo.WPFClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MainViewModel _viewModel;
+        
         public MainWindow(MainViewModel viewModel)
         {
             InitializeComponent();
+            _viewModel = viewModel;
             DataContext = viewModel;
+        }
+        
+        protected override void OnClosed(EventArgs e)
+        {
+            // Dispose the view model when the window is closed
+            if (_viewModel is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
+            base.OnClosed(e);
         }
     }
 }

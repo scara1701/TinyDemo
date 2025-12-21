@@ -34,7 +34,7 @@ namespace TinyDemo.WPFClient
         {
             services.AddSingleton<ILottoService, LottoService>();
             services.AddSingleton<HttpClient>();
-            services.AddTransient<MainViewModel>();
+            services.AddSingleton<MainViewModel>(); // Changed from Transient to Singleton
             services.AddSingleton<MainWindow>();
 
         }

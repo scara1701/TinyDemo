@@ -33,7 +33,7 @@ namespace TinyDemo.MauiClient
         {
             services.AddSingleton<ILottoService, LottoService>();
             services.AddSingleton<HttpClient>();
-            services.AddTransient<MainViewModel>();
+            services.AddSingleton<MainViewModel>(); // Changed from Transient to Singleton
             services.AddTransient<MainPage>();
             services.AddSingleton<AppShell>(); //Gwen -  Zorg ervoor dat AppShell wordt geregistreerd
         }
