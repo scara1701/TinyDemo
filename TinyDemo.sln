@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36121.58
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyDemo.SharedLib", "TinyDemo.SharedLib\TinyDemo.SharedLib.csproj", "{04EBA1E2-8578-40E9-813B-AA47DF1A6C9C}"
 EndProject
@@ -16,6 +16,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyDemo.ClientLib", "TinyDemo.ClientLib\TinyDemo.ClientLib.csproj", "{2E1658B4-3431-44EA-9E1A-1CCA9737CCFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyDemo.MauiClient", "TinyDemo.MauiClient\TinyDemo.MauiClient.csproj", "{6DCBBE7E-1429-49EF-A777-233BB1E19573}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyDemo.ClientLib.Tests", "TinyDemo.ClientLib.Tests\TinyDemo.ClientLib.Tests.csproj", "{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D8D514B-9453-4433-8EE5-1D0AE9D4C370}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +58,10 @@ Global
 		{6DCBBE7E-1429-49EF-A777-233BB1E19573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DCBBE7E-1429-49EF-A777-233BB1E19573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DCBBE7E-1429-49EF-A777-233BB1E19573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
