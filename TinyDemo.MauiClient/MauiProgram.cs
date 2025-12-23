@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
+using TinyDemo.ClientLib.Services;
+using TinyDemo.MVVM;
+using TinyDemo.SharedLib.Services;
 
 namespace TinyDemo.MauiClient
 {
@@ -15,11 +18,35 @@ namespace TinyDemo.MauiClient
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // Configure dependency injection
+            ConfigureServices(builder.Services);
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+			builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
+            var app = builder.Build();
+            
+            // Create the App instance using the service provider
+            var serviceProvider = app.Services;
+            var mainApp = serviceProvider.GetRequiredService<App>();
+            
+            return app;
+        }
+
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            // Register services
+            services.AddSingleton<ILottoService, LottoService>();
+            services.AddSingleton<HttpClient>();
+            services.AddSingleton<MainViewModel>();
+            
+            // Register pages
+            services.AddTransient<MainPage>();
+            services.AddSingleton<AppShell>();
+            
+            // Register App with constructor injection
+            services.AddSingleton<App>();
         }
     }
 }

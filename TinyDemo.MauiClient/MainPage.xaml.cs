@@ -5,17 +5,14 @@ namespace TinyDemo.MauiClient
     public partial class MainPage : ContentPage
     {
         private readonly MainViewModel _viewModel;
-        
-        //Injecting viewmodel in cosntructor causes exception???
-        //public MainPage(MainViewModel viewModel)
-        public MainPage()
+
+        public MainPage(MainViewModel viewModel)
         {
             InitializeComponent();
-            _viewModel = App.ServiceProvider.GetRequiredService<MainViewModel>();
+            _viewModel = viewModel;
             BindingContext = _viewModel;
-
         }
-        
+
         protected override void OnDisappearing()
         {
             // Dispose the view model when the page is no longer visible

@@ -6,37 +6,18 @@ namespace TinyDemo.MauiClient
 {
     public partial class App : Application
     {
-        public static IServiceProvider ServiceProvider { get; private set; }
+        private readonly IServiceProvider _serviceProvider;
 
-
-
-        public App()
+        public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-
-            //Gwen -  Configure services en stel de ServiceProvider in
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-            ServiceProvider = services.BuildServiceProvider();
-
+            _serviceProvider = serviceProvider;
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            var appShell = ServiceProvider.GetRequiredService<AppShell>();
+            var appShell = _serviceProvider.GetRequiredService<AppShell>();
             return new Window(appShell);
-            //return new Window(new AppShell());
         }
-
-
-        private void ConfigureServices(IServiceCollection services)
-        {
-            services.AddSingleton<ILottoService, LottoService>();
-            services.AddSingleton<HttpClient>();
-            services.AddSingleton<MainViewModel>(); // Changed from Transient to Singleton
-            services.AddTransient<MainPage>();
-            services.AddSingleton<AppShell>(); //Gwen -  Zorg ervoor dat AppShell wordt geregistreerd
-        }
-
     }
 }
