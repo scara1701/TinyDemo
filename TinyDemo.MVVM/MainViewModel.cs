@@ -27,7 +27,25 @@ namespace TinyDemo.MVVM
             _lottoService = lottoService ?? throw new ArgumentNullException(nameof(lottoService));
             StatusMessage = "Ready to generate lotto numbers";
             Busy = false;
-            _ = GenerateLottoAsync();
+            Lotto = new Lotto { GeneratedOnTime = DateTime.Now };
+            // Initialize with empty numbers to avoid null reference issues
+            for (int i = 0; i < 7; i++)
+            {
+                Lotto.Numbers.Add(0);
+            }
+            InitializeAsync();
+        }
+
+        private async void InitializeAsync()
+        {
+            try
+            {
+                await GenerateLottoAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = "Error during initialization: " + ex.Message;
+            }
         }
 
         private async Task GenerateLottoAsync()
@@ -81,7 +99,7 @@ namespace TinyDemo.MVVM
                 Busy = true;
                 StatusMessage = "Generating lotto numbers. Please wait....";
 
-                var lotto = await _lottoService.GenerateLotto(linkedCts.Token).ConfigureAwait(false);
+                var lotto = await _lottoService.GenerateLotto(linkedCts.Token);
                 Lotto = lotto;
                 StatusMessage = $"Lotto numbers generated on {lotto.GeneratedOnTime:t}";
             }
