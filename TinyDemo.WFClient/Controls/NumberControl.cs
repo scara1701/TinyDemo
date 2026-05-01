@@ -1,9 +1,13 @@
 ﻿
+using System.ComponentModel;
+
 namespace TinyDemo.WFClient.Controls
 {
     public class NumberControl : UserControl
     {
         private int _number = 1; //Gwen - Standaard cijfer
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 
         public int Number
         {
